@@ -2,11 +2,37 @@ form > span {
     color: red;
 }
 
+button {
+    padding: .75em;
+    border-radius: .3em;
+    background-color: rgb(7, 75, 7);
+    color: rgb(239, 176, 252);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(3, 34, 3);
+}
+
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1 {
+    text-align: center;    
+}
+
+h1, form label, form button, form input{
+    font-family: 'Indie Flower', cursive;
+}
+
 input[type=text] {
     margin-bottom: 1em;
 }
 
-form label{
+form label {
     display: inline-block;
     text-align: right;
     width: 50%;
@@ -18,12 +44,12 @@ form button {
 }
 
 @media only screen and (max-width: 600px){
-    form label{
+    form label {
         text-align: left;
         width: 100%;
     }
 
-    form button{
+    form button {
         margin-left: 0;
     }
 }
