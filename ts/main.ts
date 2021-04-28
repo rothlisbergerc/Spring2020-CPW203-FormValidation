@@ -5,7 +5,33 @@ window.onload = function(){
     formBtn.onclick = main;
 }
 
+/**
+ * Change heading to random color when it's clicked
+ */
+function changeHeading(){
+    let heading = <HTMLElement>this;
+    let red = Math.floor(Math.random() * 255 +1);
+    let green = Math.floor(Math.random() * 255 +1);
+    let blue = Math.floor(Math.random() * 255 +1);
+    let color = "red(" + red + "," + green + "," + blue + ")";
+    console.log(color);
+    heading.style.color = color; //inline class
+    console.log(heading.style.color);
+}
+
 function main():void{
+    let msgHeading = document.createElement("h2"); // programatically create an h2
+    msgHeading.innerText = "Processing form";
+    msgHeading.setAttribute("class", "message");
+    msgHeading.onclick = changeHeading;
+
+    let h1 = document.querySelector("h1");
+    h1.insertAdjacentElement("afterend", msgHeading);
+
+    setTimeout(function(){ // h2 disappears after 5 seconds
+        msgHeading.remove();
+    }, 5000)
+
     resetErrorMessages();
     isTextPresent("first-name", "First name is required");
     isTextPresent("last-name", "Last name is required");
@@ -26,7 +52,7 @@ function CheckValidDate() {
 }
 
 function isValidDate(input:string):boolean{
-    // va;odatomg  mm/dd/yyyy and m/d/yyy -- \d{1,2}\/\d{1,2}\/\d{4} --  (this is a regular expression)
+    // validating  mm/dd/yyyy and m/d/yyy -- \d{1,2}\/\d{1,2}\/\d{4} --  (this is a regular expression)
     //https://regexr.com/ 
     let pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/g
     return pattern.test(input);
