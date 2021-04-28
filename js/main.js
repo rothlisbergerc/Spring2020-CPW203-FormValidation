@@ -10,6 +10,8 @@ function main() {
     var dob = dobBox.value;
     if (!isValidDate(dob)) {
         dobBox.nextElementSibling.innerHTML = "Format should be mm/dd/yyyy";
+        var errSpan = dobBox.nextElementSibling;
+        errSpan.innerHTML = "Format should be mm/dd/yyy";
     }
 }
 function isValidDate(input) {
